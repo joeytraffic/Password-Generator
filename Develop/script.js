@@ -43,41 +43,38 @@ function writePassword() {
   var char = "";
   if (passwordLower) {
     char = char.concat(lowerChar);
-    console.log(char);
   }
   if (passwordUpper) {
     char = char.concat(upperChar);
-    console.log(char);
   }
   if (passwordNumeric) {
     char = char.concat(numericChar);
-    console.log(char);
   }
   if (passwordSpecial) {
     char = char.concat(specialChar);
-    console.log(char);
   }
 
-  
+  // Used to see selected characters
+  console.log(char);
+
 
   function generatePassword() {
-    var empty = "";
-    while (empty.length < passwordLength) {
-      empty += char[Math.floor(Math.random() * char.length)];
+    var passGen = "";
+    while (passGen.length < passwordLength) {
+      passGen += char[Math.floor(Math.random() * char.length)];
     }
-    console.log(empty);
+    return passGen;
   }
 
   var password = generatePassword();
+
+  console.log(password);
+  
   var passwordText = document.querySelector("#password");
-
-
-
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); {
-
 }
